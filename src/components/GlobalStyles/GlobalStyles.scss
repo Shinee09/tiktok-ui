@@ -1,12 +1,38 @@
-@import 'normalize.css' ;
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;300;400;500;600;700&display=swap');
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500,600,700&display=swap&subset=vietnamese');
+
+@font-face {
+    font-family: 'ProximaNova';
+    src: url(../../assets/fonts/Proxima-Nova-Regular.woff2) format('woff2'),
+        url(../../assets/fonts/Proxima-Nova-Regular.woff) format('woff'),
+        url(../../assets/fonts/Proxima-Nova-Regular.otf) format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ProximaNova';
+    src: url(../../assets/fonts/Proxima-Nova-Semibold.woff2) format('woff2'),
+        url(../../assets/fonts/Proxima-Nova-Semibold.woff) format('woff'),
+        url(../../assets/fonts/Proxima-Nova-Semibold.otf) format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ProximaNova';
+    src: url(../../assets/fonts/Proxima-Nova-Bold.woff2) format('woff2'),
+        url(../../assets/fonts/Proxima-Nova-Bold.woff) format('woff'),
+        url(../../assets/fonts/Proxima-Nova-Bold.otf) format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
 
 :root {
     --primary: #fe2c55;
     --black: #000;
     --white: #fff;
     --text-color: #333;
-
     --default-layout-header-height: 60px;
     --default-layout-width: 1150px;
 }
@@ -22,14 +48,17 @@ html {
 }
 
 body {
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: 'IBM Plex Sans', ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
-    color: var(--text-color)
+    color: var(--text-color);
+    overflow-y: hidden;
 }
 
-button, input, [tabindex] {
+button,
+input,
+[tabindex] {
     outline: none;
     border: none;
 }
@@ -42,4 +71,22 @@ a[href] {
 
 li {
     list-style: none;
+}
+
+body .tippy-box {
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    background-color: rgba(84, 84, 84, 0.92);
+    color: rgb(255, 255, 255);
+    padding: 2px;
+
+    .tippy-arrow {
+        color: rgba(84, 84, 84, 0.92);
+
+        &::before {
+            top: -8px !important;
+        }
+    }
 }

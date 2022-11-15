@@ -25,83 +25,17 @@
 .logo {
     display: flex;
     align-items: center;
-}
-
-.search, .search-result {
-    width: 361px;
-}
-
-.search {
-    // width: 361px;
-    height: var(--search-height);
-    background-color: rgba(22, 24, 35, .06);
-    display: flex;
-    align-items: center;
-    padding-left: 16px;
-    border-radius: var(--search-border-radius);
-    position: relative;
-
-    input {
-        font-family: "IBM Plex Sans",ProximaNova,Arial,Tahoma,PingFangSC,sans-serif;
-        width: 292px;
-        height: 100%;
-        background: transparent;
-        font-size: 1.6rem;
-        line-height: 22px;
-        font-weight: 400;
-        color: var(--black); 
-        caret-color: var(--primary);
-    }
-
-    &::after {
-        content: "";
-        position: absolute;
-        width: 1px;
-        height: calc(var(--search-height) - var(--search-top-spacer) * 2);
-        right: var(--search-button-width);
-        background-color: rgba(22, 24, 35, 0.34);
-    }
-
-    &:focus-within {
-        border: 1.5px solid rgba(22, 24, 35, .2);
+    .logo-img {
+        padding: 0;
+        height: 42px;
+        border: none;
     }
 }
 
-.search-label {
-    color: rgba(22, 24, 35, 0.5);
-    font-size: 1.4rem;
-    font-weight: 600;
-    padding: 5px 12px;
-}
-
-.clear,
-.loading {
-    position: absolute;
-    right: calc(var(--search-button-width) + 16px);
-    top: 50%;
-    transform: translateY(-50%);
-    color: rgba(22, 24, 35, 0.34);
-
-}
-.search-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: var(--search-button-width);
-    height: 100%;
-    border-top-right-radius: var(--search-border-radius);
-    border-bottom-right-radius: var(--search-border-radius);
-    font-size: 2rem;
-    color: rgba(22, 24, 35, 0.34);
-
-    &:hover {
-        background-color: rgba(22, 24, 35, .03);
-        cursor: pointer;
-    }
-}
 
 .actions {
     display: flex;
+    align-items: center;
 }
 
 .upload-btn {
@@ -115,12 +49,6 @@
     align-items: center;
 }
 
-.upload-icon {
-    height: 20px;
-    width: 20px;
-    margin-right: 8px;
-}
-
 .more-btn {
     display: flex;
     align-items: center;
@@ -128,3 +56,26 @@
     cursor: pointer;
     padding: 0 4px;
 }
+
+@media only screen and (max-width: 799px) {
+    .search {
+        display: none
+    }
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    cursor: pointer;
+    margin-left: 19px;
+}
+
+.user-avatar {
+    cursor: pointer;
+    margin-left: 24px;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+}
+
