@@ -1,3 +1,26 @@
+html[data-theme='light'] {
+    .logo {
+        display: block;
+    }
+    .logo-dark {
+        display: none;
+    }
+}
+
+html[data-theme='dark'] {
+    .logo {
+        display: none;
+    }
+    .logo-dark {
+        display: block;
+    }
+}
+
 .upload-icon {
     margin-right: 8px;
+}
+
+.svg-icon {
+    color: var(--btn-color);
+    background: transparent;
 }

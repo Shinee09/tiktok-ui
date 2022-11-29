@@ -1,3 +1,17 @@
+html[data-theme='light'] {
+    --text-color: rgb(22, 24, 35);
+    --user-name-color: rgba(22, 24, 35, 0.5);
+
+    --bg-hover-color: rgba(22, 24, 35, .03);
+}
+
+html[data-theme='dark'] {
+    --text-color: rgba(255, 255, 255, 0.9);
+    --user-name-color: rgba(255, 255, 255, 0.5);
+
+    --bg-hover-color: rgba(255, 255, 255, 0.04);
+}
+
 .wrapper {
     display: flex;
     align-items: center;
@@ -5,9 +19,8 @@
     cursor: pointer;
 
     &:hover {
-        background-color: rgba(22, 24, 35, .03);
+        background-color: var(--bg-hover-color);
     }
-
 }
 
 .avatar {
@@ -26,10 +39,12 @@
     font-size: 1.6rem;
     font-weight: 600;
     line-height: 1.8rem;
+    color: var(--text-color);
 }
 
 .username {
     font-size: 1.4rem;
+    color: var(--user-name-color);
 }
 
 .check {

@@ -6,6 +6,7 @@ import 'tippy.js/dist/tippy.css';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
 import Image from '~/components/Image';
+import SwitchButton from '~/components/Layouts/components/SwitchButton';
 import {
     FeedbackIcon,
     GetCoinIcon,
@@ -13,10 +14,12 @@ import {
     KeyboardIcon,
     LanguageIcon,
     LiveStudioIcon,
+    Logo,
     LogoutIcon,
     MessageIcon,
     ProfileIcon,
     SettingIcon,
+    ThemeIcon,
     UploadIcon,
 } from '~/components/Icons';
 import Search from '../Search';
@@ -52,14 +55,21 @@ const MENU_ITEMS = [
         icon: <KeyboardIcon />,
         title: 'Phím tắt trên bàn phím',
     },
+    {
+        icon: <ThemeIcon />,
+        title: 'Chế độ tối',
+        
+        button: <SwitchButton mode/>,
+    },
 ];
 
+
 function Header() {
-    
     //Handle logic
     const handleMenuChange = (menuItem) => {
         console.log(menuItem);
     };
+
 
     const userMenu = [
         {
@@ -92,7 +102,7 @@ function Header() {
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
                     <Button to="/" className={cx('logo-img')}>
-                        <Image src={images.logo} alt="Tiktok" />
+                        <Logo />
                     </Button>
                 </div>
                 <Search />

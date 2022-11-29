@@ -1,10 +1,19 @@
+html[data-theme='light'] {
+    --bg-color: #fff;
+}
+
+html[data-theme='dark'] {
+    --bg-color: rgb(37, 37, 37);
+}
+
+
 .wrapper {
     min-width: 100%;
     max-height: min((100vh - 96px) - 60px, 734px);
     border-radius: 8px;
     padding-top: 8px;
     min-height: 100px;
-    background: rgb(255, 255, 255);
+    background: var(--bg-color);
     box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
     overflow-y: auto;
 

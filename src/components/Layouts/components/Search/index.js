@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
+import axios from 'axios';
 import classNames from 'classnames/bind';
 import styles from './Search.module.scss';
 import { SearchIcon } from '~/components/Icons';
@@ -7,6 +8,7 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AcountItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { useDebounce } from '~/hooks';
 
 const cx = classNames.bind(styles);
 
@@ -16,25 +18,30 @@ function Search() {
     const [showResult, setShowResult] = useState(false);
     const [loading, setLoading] = useState(false);
 
+    const debouced = useDebounce(searchValue, 500);
 
     const inputRef = useRef();
 
     useEffect(() => {
-        if (!searchValue.trim()) {
-            setSearchResult([])
-            return
+        if (!debouced.trim()) {
+            setSearchResult([]);
+            return;
         }
 
         setLoading(true);
 
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}&type=less`)
-            .then( res => res.json())
-            .then( res => {
-                setSearchResult(res.data)
-                setLoading(false)
+        axios
+            .get(`https://tiktok.fullstack.edu.vn/api/users/search`, {
+                params: {
+                    q: debouced,
+                    type: 'less',
+                },
             })
-
-    }, [searchValue]);
+            .then((res) => {
+                setSearchResult(res.data.data);
+                setLoading(false);
+            });
+    }, [debouced]);
 
     const handleClear = () => {
         setSearchValue('');
@@ -54,7 +61,7 @@ function Search() {
                     <PopperWrapper>
                         <h4 className={cx('search-label')}>Tài khoản</h4>
                         {searchResult.map((result) => (
-                            <AccountItem key={result.id} data={result}/>
+                            <AccountItem key={result.id} data={result} />
                         ))}
                     </PopperWrapper>
                 </div>
@@ -76,6 +83,7 @@ function Search() {
                     </button>
                 )}
                 {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
+                <span className={cx('search-spacer')}></span>
                 <button className={cx('search-btn')}>
                     <SearchIcon />
                 </button>

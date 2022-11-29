@@ -6,8 +6,7 @@ import MenuItem from './MenuItem';
 import Header from './Header';
 const cx = classNames.bind(styles);
 
-const fn = () => {}
-
+const fn = () => {};
 
 function Menu({ children, items = [], onChange = fn() }) {
     const [history, setHistory] = useState([{ data: items }]);
@@ -22,7 +21,7 @@ function Menu({ children, items = [], onChange = fn() }) {
                     data={item}
                     onClick={() => {
                         if (isParent) {
-                            setHistory(prev => [...prev, item.children]);
+                            setHistory((prev) => [...prev, item.children]);
                         } else {
                             onChange(item);
                         }
@@ -33,21 +32,27 @@ function Menu({ children, items = [], onChange = fn() }) {
     };
 
     return (
-        <Tippy 
+        <Tippy
+            
             interactive
             delay={[0, 300]}
             placement="bottom-end"
             render={(attrs) => (
                 <div className={cx('more')} tabIndex="-1" {...attrs}>
                     <ul className={cx('more-list')}>
-                        {history.length > 1 && <Header title="Ngôn ngữ" onBack={() => {
-                            setHistory( prev => prev.slice(0, prev.length - 1))
-                        }}/>}
+                        {history.length > 1 && (
+                            <Header
+                                title="Ngôn ngữ"
+                                onBack={() => {
+                                    setHistory((prev) => prev.slice(0, prev.length - 1));
+                                }}
+                            />
+                        )}
                         {renderItems()}
                     </ul>
                 </div>
             )}
-            onHide = {() => setHistory(prev => prev.slice(0, 1))}
+            onHide={() => setHistory((prev) => prev.slice(0, 1))}
         >
             {children}
         </Tippy>

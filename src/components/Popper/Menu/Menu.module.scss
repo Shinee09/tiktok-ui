@@ -1,3 +1,11 @@
+html[data-theme='light'] {
+    --border-logout-color: rgba(22, 24, 35, 0.12);
+}
+
+html[data-theme='dark'] {
+    --border-logout-color: rgba(255, 255, 255, 0.12);
+}
+
 .more-btn {
     display: flex;
     align-items: center;
@@ -9,7 +17,7 @@
 .more {
     position: absolute;
     z-index: 1;
-    background: rgb(255, 255, 255);
+    background: var(--bg-color);
     border-radius: 8px;
     top: 2px;
     box-shadow: rgb(0 0 0 / 12%) 0px 4px 16px;
@@ -35,7 +43,7 @@
         top: -24px;
         right: 14px;
         border: 12px solid;
-        border-color: transparent transparent #fff;
+        border-color: transparent transparent var(--bg-color);
         cursor: pointer;
     }
 }
@@ -51,6 +59,7 @@
     list-style: none;
 
     .more-item {
+        color: var(--text-color);
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -65,10 +74,10 @@
         }
         &:hover {
             cursor: pointer;
-            background: rgba(22, 24, 35, 0.03);
+            background: var(--bg-hover-color);
         }
     }
     .logout {
-        border-top: 1px solid rgba(22, 24, 35, 0.12);
+        border-top: 1px solid var(--border-logout-color);
     }
 }

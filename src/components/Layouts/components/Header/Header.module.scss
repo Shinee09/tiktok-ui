@@ -1,3 +1,11 @@
+html[data-theme='light'] {
+    --box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
+}
+
+html[data-theme='dark'] {
+    --box-shadow: rgb(255 255 255 / 12%) 0px 1px 1px
+}
+
 .wrapper {
     --search-border-radius: 92px;
     --search-height: 46px;
@@ -6,7 +14,7 @@
 
     width: 100%;
     height: var(--default-layout-header-height);
-    box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
+    box-shadow: var(--box-shadow);
     display: flex;
     justify-content: center;
 
@@ -66,7 +74,7 @@
 .action-btn {
     display: flex;
     align-items: center;
-    background-color: #fff;
+    background-color: transparent;
     cursor: pointer;
     margin-left: 19px;
 }
