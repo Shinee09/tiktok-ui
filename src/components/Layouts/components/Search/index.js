@@ -30,14 +30,36 @@ function Search() {
 
         setLoading(true);
 
+        // const options = {
+        //     method: 'GET',
+        //     url: 'https://scraptik.p.rapidapi.com/search-users',
+        //     params: {keyword: debouced, count: '20', cursor: '0'},
+        //     headers: {
+        //       'X-RapidAPI-Key': '7f8a53f552msh0dd3a304f965aefp1ce262jsn14fb9dede641',
+        //       'X-RapidAPI-Host': 'scraptik.p.rapidapi.com'
+        //     }
+        //   };
+
+        // axios
+        //     .request(options)
+        //     .then(function (response) {
+        //         setSearchResult(response.data.user_list);
+        //         setLoading(false);
+        //     })
+        //     .catch(function (error) {
+        //         console.error(error);
+        //         setLoading(false);
+        //     });
+
         axios
             .get(`https://tiktok.fullstack.edu.vn/api/users/search`, {
                 params: {
                     q: debouced,
-                    type: 'less',
+                    type: 'more',
                 },
             })
             .then((res) => {
+                console.log(res.data)
                 setSearchResult(res.data.data);
                 setLoading(false);
             });
@@ -57,7 +79,7 @@ function Search() {
         setSearchValue(searchValue.startsWith(' ') ? searchValue.trim() : searchValue);
     };
     return (
-        //Using a wrapper <div>  tag around the reference element solves this by creating a new parentNode context. 
+        //Using a wrapper <div>  tag around the reference element solves this by creating a new parentNode context.
         <div>
             <HeadlessTippy
                 interactive
@@ -66,9 +88,11 @@ function Search() {
                     <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                         <PopperWrapper>
                             <h4 className={cx('search-label')}>Tài khoản</h4>
-                            {searchResult.map((result) => (
-                                <AccountItem key={result.id} data={result} />
-                            ))}
+                            <div className={cx('account-list')}>
+                                {searchResult.map((result) => (
+                                    <AccountItem key={result.id} data={result} handleHideResult />
+                                ))}
+                            </div>
                         </PopperWrapper>
                     </div>
                 )}

@@ -9,6 +9,7 @@ html[data-theme='dark'] {
 }
 
 .wrapper {
+    font-family: "IBM Plex Sans", ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
     cursor: pointer;
     border-radius: 4px;
     padding: 9px 16px;
@@ -21,9 +22,6 @@ html[data-theme='dark'] {
     font-weight: 700;
     border: 1px solid transparent;
     background: transparent;
-    + .wrapper {
-        margin-left: 16px;
-    }
 
     
     &.disabled {

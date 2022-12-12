@@ -6,7 +6,7 @@ const cx = classNames.bind(styles);
 function SwitchButton() {
     const [isDark, setIsDark] = useState(localStorage.getItem('theme') === 'dark');
     useEffect(() => {
-        document.getElementsByTagName('HTML')[0].setAttribute('data-theme', localStorage.getItem('theme'));
+        document.getElementsByTagName('HTML')[0].setAttribute('data-theme', localStorage.getItem('theme') || 'light');
     }, []);
 
     const toggleThemeChange = (e) => {

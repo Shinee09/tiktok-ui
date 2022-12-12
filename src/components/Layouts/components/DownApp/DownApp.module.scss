@@ -1,0 +1,117 @@
+html[data-theme='light'] {
+    --bg-modal-color: rgba(255, 255, 255, 1);
+}
+
+html[data-theme='dark'] {
+    --bg-modal-color: rgba(18, 18, 18, 1);
+    .svg {
+        color: rgba(255, 255, 255, 0);
+    }
+}
+
+.modal-overlay {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    outline: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-wrapper {
+    z-index: 110;
+    outline: 0;
+    transform: translateX(-50%) translateY(-50%);
+    left: 50%;
+    top: 50%;
+    overflow: hidden;
+    position: fixed;
+    background-color: transparent;
+}
+
+.modal {
+    width: 400px;
+    height: 542px;
+    background-color: var(--bg-modal-color);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    position: relative;
+    outline: 0px;
+    box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
+    border-radius: 8px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 72px;
+    padding: 8px 24px 0 24px;
+
+    border-bottom: 0.5px solid rgba(22, 24, 35, 0.2);
+}
+
+.modal-title {
+    font-weight: 700;
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+    color: var(--text-color);
+}
+
+.modal-close-button {
+    background-color: transparent;
+    color: var(--text-color);
+    line-height: 2.4rem;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    margin: 32px 0px 24px;
+    width: auto;
+    padding: 0px 24px;
+}
+
+.qr-block {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+
+.qr-img {
+    position: absolute;
+    width: 174px;
+    height: 174px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.qrcode {
+    width: 174px;
+    height: 174px;
+}
+
+.store-img {
+    width: 138px;
+    height: 40px;
+}

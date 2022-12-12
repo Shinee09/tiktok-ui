@@ -3,7 +3,7 @@ html[data-theme='light'] {
 }
 
 html[data-theme='dark'] {
-    --box-shadow: rgb(255 255 255 / 12%) 0px 1px 1px
+    --box-shadow: rgb(255 255 255 / 12%) 0px 1px 1px;
 }
 
 .wrapper {
@@ -18,7 +18,6 @@ html[data-theme='dark'] {
     box-shadow: var(--box-shadow);
     display: flex;
     justify-content: center;
-
 }
 
 .inner {
@@ -41,7 +40,6 @@ html[data-theme='dark'] {
     }
 }
 
-
 .actions {
     display: flex;
     align-items: center;
@@ -58,6 +56,10 @@ html[data-theme='dark'] {
     align-items: center;
 }
 
+.login-btn-span {
+    margin-left: 16px;
+}
+
 .more-btn {
     display: flex;
     align-items: center;
@@ -68,7 +70,7 @@ html[data-theme='dark'] {
 
 @media only screen and (max-width: 799px) {
     .search {
-        display: none
+        display: none;
     }
 }
 
@@ -87,4 +89,3 @@ html[data-theme='dark'] {
     width: 32px;
     height: 32px;
 }
-

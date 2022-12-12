@@ -1,0 +1,117 @@
+html[data-theme='light'] {
+    --bg-modal-color: rgba(255, 255, 255, 1);
+    --bg-btn-close: rgba(22, 24, 35, 0.03);
+    --bg-block-close:rgba(255, 255, 255, 0.04);
+}
+
+html[data-theme='dark'] {
+    --bg-modal-color: rgba(37, 37, 37, 1);
+    --bg-btn-close:rgba(255, 255, 255, 0.04);
+    .svg {
+        color: rgba(255, 255, 255, 0);
+    }
+}
+
+.modal-overlay {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    outline: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-wrapper {
+    z-index: 110;
+    outline: 0;
+    transform: translateX(-50%) translateY(-50%);
+    left: 50%;
+    top: 50%;
+    overflow: hidden;
+    position: fixed;
+    background-color: var(--bg-modal-color);
+    height: 80%;
+    max-height: 693px;
+    border-radius: 8px;
+}
+
+.modal {
+    width: 483px;
+    height: 100%;
+    background-color: var(--bg-modal-color);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    position: relative;
+    outline: 0px;
+    box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 48px;
+    // max-height: 370px;
+    overflow-y: auto;
+}
+
+.modal-title {
+    margin: 16px;
+    font-weight: 700;
+    font-size: 3.2rem;
+    color: var(--text-color);
+    margin-bottom: 16px;
+    line-height: 4.8rem;
+}
+
+.modal-footer{
+    min-height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(22, 24, 35, 0.12);
+}
+
+.footer-content {
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+}
+
+.footer-link {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    border-radius: 50%;
+    right: 18px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--bg-btn-close);
+}
+
+.modal-close-button {
+    position: absolute;
+    top: 16px;
+    border-radius: 50%;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+
+    cursor: pointer;
+    
+    background-color: var(--bg-btn-close);
+
+    color: var(--text-color);
+    line-height: 1.1rem;
+}

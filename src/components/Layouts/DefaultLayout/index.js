@@ -1,9 +1,13 @@
 import classNames from 'classnames/bind';
 import styles from './DefaultLayout.module.scss';
 import Header from '~/components/Layouts/components/Header';
+import 'tippy.js/dist/tippy.css';
 import Sidebar from './Sidebar';
-import { useState, useEffect } from 'react';
 import { TopIcon } from '~/components/Icons';
+import { useState, useEffect } from 'react';
+
+import useModal from '~/hooks/useModal';
+import DownApp from '~/components/Layouts/components/DownApp'
 
 const cx = classNames.bind(styles);
 
@@ -20,6 +24,15 @@ function DafaultLayout({ children }) {
         });
     }, []);
 
+    const { isShowing, toggle } = useModal();
+    useEffect(() => {
+        if(isShowing) {
+            document.querySelector("body").style.overflow="hidden"
+        } else {
+            document.querySelector("body").style.overflow="overlay"
+        }
+    }, [isShowing]);
+
     const handleClick = () => {
         window.scrollTo({
             top: 0,
@@ -34,12 +47,15 @@ function DafaultLayout({ children }) {
                 <div className={cx('content')}>{children}</div>
             </div>
             <div className={cx('sticky-block')}>
-                <div className={cx('download')}><button className={cx('download-app')}> Tải ứng dụng </button></div>
-                {showTopBtn && (
+                <div className={cx((showTopBtn && 'show') || 'hide')}>
+                    <button className={cx('download-app')} onClick={toggle}>
+                        Tải ứng dụng
+                    </button>
+                    <DownApp isShowing={isShowing} hide={toggle} />
                     <button className={cx('top-icon')} onClick={handleClick}>
                         <TopIcon className={cx('icon')} />{' '}
                     </button>
-                )}
+                </div>
             </div>
         </div>
     );

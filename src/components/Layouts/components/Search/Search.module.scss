@@ -3,10 +3,11 @@ html[data-theme='light'] {
     --search-input-color: #000;
     --search-clear-btn-color: rgba(22, 24, 35, 0.34);
     --search-space-color: rgba(22, 24, 35, 0.12);
-    --search-input-text-color: #a7a7ab;
+    --search-input-text-color: #000;
     --search-btn-hover: rgba(22, 24, 35, 0.03);
-    --search-btn-active: rgba(22, 24, 35, .06);
+    --search-btn-active: rgba(22, 24, 35, 0.06);
 
+    --search-btn: #a7a7ab;
     --search-btn-has-value: rgb(76 78 87);
     --search-label: rgba(22, 24, 35, 0.5);
 }
@@ -14,13 +15,15 @@ html[data-theme='light'] {
 html[data-theme='dark'] {
     --search-bg-color: rgba(255, 255, 255, 0.12);
     --search-input-color: rgba(159, 159, 159, 1);
-    --search-clear-btn-color: rgba(255, 255, 255, .34);
+    --search-clear-btn-color: rgba(255, 255, 255, 0.34);
     --search-space-color: rgba(255, 255, 255, 0.12);
-    --search-input-text-color: rgba(117, 117, 117, 1);
+    --search-input-text-color: rgb(171, 171, 171);
     --search-btn-hover: rgba(255, 255, 255, 0.04);
     --search-btn-active: rgba(255, 255, 255, 0.08);
 
+    --search-btn: rgba(255, 255, 255, 0.34);
     --search-btn-has-value: rgb(203 203 203);
+
     --search-label: rgba(255, 255, 255, 0.5);
 }
 
@@ -44,9 +47,13 @@ html[data-theme='dark'] {
         font-size: 1.6rem;
         line-height: 22px;
         font-weight: 400;
-        color: var(--text-color);
+        color: var(--search-input-color);
         caret-color: var(--primary);
         font-family: 'IBM Plex Sans', ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+    }
+
+    input:not(:placeholder-shown) {
+        color: var(--text-color);
     }
 
     input:not(:placeholder-shown) ~ .search-btn {
@@ -72,6 +79,14 @@ html[data-theme='dark'] {
     font-size: 1.4rem;
     font-weight: 600;
     padding: 5px 12px;
+}
+
+.account-list {
+    max-height: min((100vh - 100px) - 140px, 660px);
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
 }
 
 .clear,
@@ -101,14 +116,14 @@ html[data-theme='dark'] {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-right: 2px;
+    padding-right: 3px;
     width: var(--search-button-width);
     height: 100%;
     border-top-right-radius: var(--search-border-radius);
     border-bottom-right-radius: var(--search-border-radius);
     font-size: 2rem;
     cursor: pointer;
-    color: var(--search-input-text-color);
+    color: var(--search-btn);
     background: transparent;
 
     &:hover {
@@ -116,5 +131,12 @@ html[data-theme='dark'] {
     }
     &:active {
         background: var(--search-btn-active);
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    .search {
+        display: none;
     }
 }

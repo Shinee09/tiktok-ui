@@ -4,14 +4,19 @@ import classNames from 'classnames/bind';
 import styles from './Menu.module.scss';
 import MenuItem from './MenuItem';
 import Header from './Header';
+
+import { useEffect } from 'react';
+
 const cx = classNames.bind(styles);
 
 const fn = () => {};
 
-function Menu({ children, items = [], onChange = fn() }) {
+function Menu({ children, items = [], onChange = fn(), isLogin }) {
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
-
+    useEffect(() => {
+        setHistory([{ data: items }]);
+    }, [isLogin]);
     const renderItems = () => {
         return current.data.map((item, index) => {
             const isParent = !!item.children;
@@ -33,7 +38,6 @@ function Menu({ children, items = [], onChange = fn() }) {
 
     return (
         <Tippy
-        
             interactive
             hideOnClick={false}
             delay={[0, 300]}
@@ -49,9 +53,7 @@ function Menu({ children, items = [], onChange = fn() }) {
                                 }}
                             />
                         )}
-                        <div className={cx('more-list-scroll')}>
-                        {renderItems()}
-                        </div>
+                        <div className={cx('more-list-scroll')}>{renderItems()}</div>
                     </ul>
                 </div>
             )}

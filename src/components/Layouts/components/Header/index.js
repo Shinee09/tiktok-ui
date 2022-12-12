@@ -24,9 +24,12 @@ import {
 } from '~/components/Icons';
 import Search from '../Search';
 
-const cx = classNames.bind(styles);
+import React, { useState, useEffect } from 'react';
 
-const currentUser = true;
+import useModal from '~/hooks/useModal';
+import LoginForm from '~/components/Layouts/components/LoginForm';
+
+const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
     {
@@ -121,7 +124,6 @@ const MENU_ITEMS = [
     {
         icon: <FeedbackIcon />,
         title: 'Phản hồi và trợ giúp',
-        to: '/feedback',
     },
     {
         icon: <KeyboardIcon />,
@@ -130,45 +132,72 @@ const MENU_ITEMS = [
     {
         icon: <ThemeIcon />,
         title: 'Chế độ tối',
-        
-        button: <SwitchButton mode/>,
+        button: <SwitchButton mode />,
     },
 ];
 
+const userMenu = [
+    {
+        icon: <ProfileIcon />,
+        title: 'Xem hồ sơ',
+        to: '/@user',
+    },
+    {
+        icon: <GetCoinIcon />,
+        title: 'Nhận Xu',
+    },
+    {
+        icon: <LiveStudioIcon />,
+        title: 'LIVE Studio',
+    },
+    {
+        icon: <SettingIcon />,
+        title: 'Cài đặt',
+    },
+    ...MENU_ITEMS,
+    {
+        icon: <LogoutIcon />,
+        title: 'Đăng xuất',
+        classB: cx('logout'),
+        to: '/',
+    },
+];
 
 function Header() {
     //Handle logic
+
+    const { isShowing, toggle } = useModal();
+    useEffect(() => {
+        if (isShowing) {
+            document.querySelector('body').style.overflow = 'hidden';
+        } else {
+            document.querySelector('body').style.overflow = 'overlay';
+        }
+    }, [isShowing]);
+
+    const [menuRender, setMenuRender] = useState(localStorage.getItem('login') === 'true' ? userMenu : MENU_ITEMS);
+
+    const [isLogin, setLogin] = useState(localStorage.getItem('login') === 'true');
+
+    const handleLogin = () => {
+        localStorage.setItem('login', 'true');
+        setLogin(true);
+        setMenuRender(userMenu);
+        toggle(false);
+    };
+    useEffect(() => {
+        setMenuRender(userMenu);
+    }, [isLogin]);
     const handleMenuChange = (menuItem) => {
-        console.log(menuItem);
+        switch (menuItem.title) {
+            case 'Đăng xuất':
+                localStorage.setItem('login', 'false');
+                setLogin(false);
+                setMenuRender(MENU_ITEMS);
+                break;
+        }
     };
 
-
-    const userMenu = [
-        {
-            icon: <ProfileIcon />,
-            title: 'Xem hồ sơ',
-            to: '/@user',
-        },
-        {
-            icon: <GetCoinIcon />,
-            title: 'Nhận Xu',
-        },
-        {
-            icon: <LiveStudioIcon />,
-            title: 'LIVE Studio',
-        },
-        {
-            icon: <SettingIcon />,
-            title: 'Cài đặt',
-            to: '/setting',
-        },
-        ...MENU_ITEMS,
-        {
-            icon: <LogoutIcon />,
-            title: 'Đăng xuất',
-            classB: cx('logout'),
-        },
-    ];
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -179,9 +208,9 @@ function Header() {
                 </div>
                 <Search />
                 <div className={cx('actions')}>
-                    {currentUser ? (
+                    {isLogin ? (
                         <>
-                            <Button to="upload" outline className={cx('upload-btn')}>
+                            <Button outline className={cx('upload-btn')}>
                                 <span className={cx('upload-btn-span')}>
                                     <UploadIcon />
                                     Tải lên
@@ -201,19 +230,26 @@ function Header() {
                         </>
                     ) : (
                         <>
-                            <Button to="upload" outline className={cx('upload-btn')}>
+                            <Button outline className={cx('upload-btn')}>
                                 <span className={cx('upload-btn-span')}>
                                     <UploadIcon />
                                     Tải lên
                                 </span>
                             </Button>
-                            <Button primary small>
+                            <Button primary small onClick={toggle} className={cx('login-btn-span')}>
                                 Đăng nhập
                             </Button>
+                            <LoginForm handleLogin={handleLogin} isShowing={isShowing} hide={toggle} />
                         </>
                     )}
-                    <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
-                        {currentUser ? (
+                    <Menu
+                        handleLogin={handleLogin}
+                        // items={isLogin ? userMenu : MENU_ITEMS}
+                        isLogin={isLogin}
+                        items={menuRender}
+                        onChange={handleMenuChange}
+                    >
+                        {isLogin ? (
                             <Image src={images.avatar} className={cx('user-avatar')} alt="avatar" />
                         ) : (
                             <div className={cx('more-btn')}>
