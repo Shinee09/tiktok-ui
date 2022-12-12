@@ -33,8 +33,9 @@ function Menu({ children, items = [], onChange = fn() }) {
 
     return (
         <Tippy
-            
+        
             interactive
+            hideOnClick={false}
             delay={[0, 300]}
             placement="bottom-end"
             render={(attrs) => (
@@ -48,7 +49,9 @@ function Menu({ children, items = [], onChange = fn() }) {
                                 }}
                             />
                         )}
+                        <div className={cx('more-list-scroll')}>
                         {renderItems()}
+                        </div>
                     </ul>
                 </div>
             )}

@@ -43,6 +43,78 @@ const MENU_ITEMS = [
                     code: 'en',
                     title: 'Tiếng Anh',
                 },
+                {
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    code: 'en',
+                    title: 'Tiếng Anh',
+                },
+                {
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    code: 'en',
+                    title: 'Tiếng Anh',
+                },
+                {
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    code: 'en',
+                    title: 'Tiếng Anh',
+                },
+                {
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    code: 'en',
+                    title: 'Tiếng Anh',
+                },
+                {
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    code: 'en',
+                    title: 'Tiếng Anh',
+                },
+                {
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    code: 'en',
+                    title: 'Tiếng Anh',
+                },
+                {
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    code: 'en',
+                    title: 'Tiếng Anh',
+                },
+                {
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    code: 'en',
+                    title: 'Tiếng Anh',
+                },
+                {
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    code: 'en',
+                    title: 'Tiếng Anh',
+                },
             ],
         },
     },

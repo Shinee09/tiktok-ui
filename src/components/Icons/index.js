@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 
 export const Logo = ({ width = '11.8rem', height = '4.2rem', className }) => (
-    <div >
+    <div>
         <svg xmlns="http://www.w3.org/2000/svg" className={cx('logo')} width={width} height={height} alt="TikTok">
             <path
                 d="M9.87537 16.842V15.7233C9.49211 15.6721 9.10246 15.6401 8.70003 15.6401C3.90288 15.6338 0 19.5399 0 24.3475C0 27.2947 1.46917 29.9031 3.71764 31.4822C2.26763 29.9287 1.37974 27.8381 1.37974 25.5494C1.37974 20.8121 5.17403 16.9507 9.87537 16.842Z"
@@ -69,7 +69,15 @@ export const Logo = ({ width = '11.8rem', height = '4.2rem', className }) => (
             ></path>
         </svg>
 
-        <svg xmlns="http://www.w3.org/2000/svg" className={cx('logo-dark')} fill="none" viewBox="0 0 118 30" width={width} height={height} alt="TikTok">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className={cx('logo-dark')}
+            fill="none"
+            viewBox="0 0 118 30"
+            width={width}
+            height={height}
+            alt="TikTok"
+        >
             <path
                 fill="#25F4EE"
                 d="M9.875 11.842v-1.119A8.836 8.836 0 008.7 10.64c-4.797-.006-8.7 3.9-8.7 8.707a8.706 8.706 0 003.718 7.135A8.675 8.675 0 011.38 20.55c0-4.737 3.794-8.598 8.495-8.707z"
@@ -334,5 +342,23 @@ export const ThemeIcon = ({ width = '2.0rem', height = '2.0rem', className = cx(
             clipRule="evenodd"
             d="M20.3019 6.38068C21.723 6.08373 22.9615 7.16986 23.009 8.50693C23.2751 16.0034 29.4377 22 37 22C37.8141 22 38.6105 21.9307 39.3839 21.7982C40.7019 21.5723 42 22.5655 42 24C42 33.9411 33.9411 42 24 42C14.0589 42 6 33.9411 6 24C6 15.3248 12.1351 8.0871 20.3019 6.38068ZM19.2223 10.8358C13.8426 12.7885 10 17.9473 10 24C10 31.732 16.268 38 24 38C31.06 38 36.8994 32.7742 37.8611 25.9797C37.5756 25.9932 37.2886 26 37 26C28.0237 26 20.5827 19.4301 19.2223 10.8358Z"
         ></path>
+    </svg>
+);
+
+export const TopIcon = ({ width = '1.6rem', height = '1.6rem', className }) => (
+    <svg
+        className={className}
+        width={width}
+        height={height}
+        viewBox="0 0 48 48"
+        fill="#FFF"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M22.1086 20.3412C23.1028 19.2196 24.8972 19.2196 25.8914 20.3412L42.8955 39.5236C44.2806 41.0861 43.1324 43.5 41.004 43.5L6.99596 43.5C4.86764 43.5 3.71945 41.0861 5.10454 39.5235L22.1086 20.3412Z"
+        ></path>
+        <path d="M4.5 7.5C4.5 5.84315 5.84315 4.5 7.5 4.5L40.5 4.5C42.1569 4.5 43.5 5.84315 43.5 7.5C43.5 9.15685 42.1569 10.5 40.5 10.5L7.5 10.5C5.84315 10.5 4.5 9.15685 4.5 7.5Z"></path>
     </svg>
 );

@@ -18,15 +18,7 @@ html[data-theme='dark'] {
     overflow-y: auto;
 
     &::-webkit-scrollbar {
-        width: 6px;
-        background-color: #e2e2e2;
-        border-radius: 40px;
+        width: 8px;
     }
-
-    &::-webkit-scrollbar-thumb {
-        background: #6a6a6a;
-        border-radius: 40px;
-    }
-
 
 }

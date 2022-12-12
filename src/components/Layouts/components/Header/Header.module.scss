@@ -12,6 +12,7 @@ html[data-theme='dark'] {
     --search-top-spacer: 9px;
     --search-button-width: 52px;
 
+    position: fixed;
     width: 100%;
     height: var(--default-layout-header-height);
     box-shadow: var(--box-shadow);

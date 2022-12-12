@@ -1,14 +1,103 @@
+html[data-theme='light'] {
+    --download-app-btn: rgb(255, 255, 255);
+    --download-app-text: rgba(22, 24, 35, 0.75);
+}
+
+html[data-theme='dark'] {
+    --download-app-btn: rgb(37, 37, 37);
+    --download-app-text: rgba(255, 255, 255, 0.75);
+}
+
 .wrapper {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
 }
 
 .container {
     width: var(--default-layout-width);
     display: flex;
+    margin-top: 60px;
 }
 
 .content {
     flex: 1;
+}
+
+.sticky-block {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    right: 24px;
+    bottom: 8px;
+    -webkit-font-smoothing: antialiased;
+}
+
+@keyframes cubic-bezier {
+    25% {
+        cx: 100px;
+        r: 43.199999999999996px;
+    }
+    50% {
+        cx: 140px;
+        r: 36px;
+    }
+    75% {
+        cx: 100px;
+        r: 21.599999999999998px;
+    }
+    100% {
+        cx: 60px;
+        r: 36px;
+    }
+}
+
+.download {
+    transform: translateY(40px);
+    transition: all 1s ease-out;
+}
+
+.download-app {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--download-app-text);
+    border: 1px solid rgba(22, 24, 35, 0.12);
+    background: none var(--download-app-btn);
+    outline: none;
+    font-family: 'IBM Plex Sans', ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+    padding: 0px 8px;
+    min-width: 90px;
+    height: 32px;
+    box-shadow: rgb(0 0 0 / 6%) 0px 2px 8px;
+    border-radius: 52px;
+    cursor: pointer;
+    line-height: 30px;
+    text-align: center;
+    white-space: nowrap;
+    margin-bottom: 4px;
+
+
+}
+
+.top-icon {
+    margin-top: 8px;
+    border: none;
+    outline: none;
+    padding-bottom: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    border-radius: 50px;
+    width: 32px;
+    height: 32px;
+    background: rgb(255, 59, 92);
+    box-shadow: rgb(0 0 0 / 6%) 0px 2px 8px;
+}
+
+.icon {
+    margin-top: 4px;
 }

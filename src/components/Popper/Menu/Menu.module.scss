@@ -26,7 +26,7 @@ html[data-theme='dark'] {
     right: -13px;
 
     &::before {
-        content: "";
+        content: '';
         position: absolute;
         top: -16px;
         right: 0px;
@@ -38,7 +38,7 @@ html[data-theme='dark'] {
     }
 
     &::after {
-        content: "";
+        content: '';
         position: absolute;
         top: -24px;
         right: 14px;
@@ -48,12 +48,10 @@ html[data-theme='dark'] {
     }
 }
 
-
 .more-list {
-    font-weight: 600;
     font-size: 16px;
     line-height: 22px;
-    padding: 8px 0px;
+    padding: 9px 0px;
     margin: 0px;
     min-width: 223px;
     list-style: none;
@@ -76,8 +74,26 @@ html[data-theme='dark'] {
             cursor: pointer;
             background: var(--bg-hover-color);
         }
+
+        
     }
     .logout {
         border-top: 1px solid var(--border-logout-color);
+    }
+}
+
+.more-list-scroll {
+    max-height: 580px;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        width: 0.8rem;
+        border-radius: 4px;
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--bg-hover-color);
+        border-radius: 40px;
     }
 }

@@ -24,13 +24,11 @@ html[data-theme='dark'] {
     --search-label: rgba(255, 255, 255, 0.5);
 }
 
-.search,
 .search-result {
     width: 361px;
 }
 
 .search {
-    // width: 361px;
     height: var(--search-height);
     background-color: var(--search-bg-color);
     display: flex;
@@ -46,7 +44,7 @@ html[data-theme='dark'] {
         font-size: 1.6rem;
         line-height: 22px;
         font-weight: 400;
-        color: var(--search-input-color);
+        color: var(--text-color);
         caret-color: var(--primary);
         font-family: 'IBM Plex Sans', ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
     }
